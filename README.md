@@ -13,11 +13,11 @@ I needed something like react-images but with extended features like zooming and
 
 
 ```bash
-npm install --save react-images
+npm install --save react-images-extended
 ```
 or
 ```bash
-yarn add react-images
+yarn add react-images-extended
 ```
 
 ```jsx
@@ -108,8 +108,10 @@ onClickNext | func | undefined | Fired on request of the next image
 onClose | func | undefined | Required. Handle closing of the lightbox
 onClickImage | func | undefined | Handle click on image
 onClickThumbnail | func | undefined | Handle click on thumbnail
+onSave | func | undefined | Show save button and handle click / params : currentImageIndex, {rotation, zoom}
 preloadNextImage | bool | true | Based on the direction the user is navigating, preload the next available image
 rightArrowTitle | string | ' Next (Right arrow key) ' | Customize right arrow title
+rotatable | bool | false | Show rotate buttons
 showCloseButton | bool  | true | Optionally display a close "X" button in top right corner
 showImageCount | bool  | true | Optionally display image index, e.g., "3 of 20"
 width | number  | 1024 | Maximum width of the carousel; defaults to 1024px
@@ -117,6 +119,7 @@ spinner | func | DefaultSpinner | Spinner component class
 spinnerColor | string | 'white' | Color of spinner
 spinnerSize | number | 100 | Size of spinner
 preventScroll | bool | true | Determines whether scrolling is prevented via [react-scrolllock](https://github.com/jossmac/react-scrolllock)
+zoomable | bool | false | Show zoom buttons
 
 ## Images object
 
