@@ -1,6 +1,6 @@
 {
   "name": "react-images-extended",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "A simple, responsive lightbox component for displaying an array of images with React.js with extended features",
   "main": "lib/Lightbox.js",
   "jsnext:main": "dist/react-images.es.js",
@@ -62,7 +62,7 @@
   "bugs": {
     "url": "https://github.com/simokhalil/react-images-extended/issues"
   },
-  "homepage": "http://jossmac.github.io/react-images",
+  "homepage": "https://react-images-extended.surge.sh",
   "keywords": [
     "react",
     "react-component",
