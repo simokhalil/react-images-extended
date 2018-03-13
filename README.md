@@ -5,6 +5,9 @@
 
 A simple, responsive lightbox component for displaying an array of images.
 
+### Why this fork ?
+I needed something like react-images but with extended features like zooming and rotating, with the ability to save selelcted zoom level (scaling) and zooming via API, and re-apply them on get
+
 
 ### Quick start
 
@@ -31,6 +34,9 @@ export default class Sample extends React.Component {
         onClickPrev={this.gotoPrevious}
         onClickNext={this.gotoNext}
         onClose={this.closeLightbox}
+        rotatable={true}
+        zoomable={true}
+        onSave={(currentImageIndex, zoom, rotation) => console.log('zoom, rotation, currentImageIndex, currentImageSrc : ', zoom, rotation, currentImageIndex, this.props.images[currentImageIndex].src)}
       />
     );
   }

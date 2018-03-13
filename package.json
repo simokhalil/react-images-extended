@@ -1,14 +1,14 @@
 {
-  "name": "react-images",
+  "name": "react-images-extended",
   "version": "0.5.17",
-  "description": "A simple, responsive lightbox component for displaying an array of images with React.js",
+  "description": "A simple, responsive lightbox component for displaying an array of images with React.js with extended features",
   "main": "lib/Lightbox.js",
   "jsnext:main": "dist/react-images.es.js",
-  "author": "Joss Mackison",
+  "author": "Khalil EL ISMAILI",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jossmac/react-images.git"
+    "url": "https://github.com/simokhalil/react-images-extended"
   },
   "dependencies": {
     "aphrodite": "^0.5.0",

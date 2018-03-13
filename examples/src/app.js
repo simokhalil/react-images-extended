@@ -66,6 +66,16 @@ const theme = {
 			opacity: 1,
 		},
 	},
+	toolbarAction: {
+		backgroundColor: 'rgba(255, 255, 255, 0.8)',
+		fill: '#222',
+		opacity: 0.6,
+		transition: 'opacity 200ms',
+
+		':hover': {
+			opacity: 1,
+		},
+	},
 	arrow__size__medium: {
 		borderRadius: 40,
 		height: 40,
@@ -111,6 +121,9 @@ render(
 		<h3>Default Options</h3>
 		<Gallery images={DEFAULT_IMAGES.map(({ caption, id, orientation, useForDemo }) => ({
 			src: makeUnsplashSrc(id),
+			id,
+			initialZoom: Math.floor(Math.random() * 3) + 1,
+			initialRotation: 0,
 			thumbnail: makeUnsplashThumbnail(id, orientation),
 			srcSet: [
 				makeUnsplashSrcSet(id, 1024),

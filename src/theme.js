@@ -29,7 +29,7 @@ theme.footer = {
 		color: 'rgba(255, 255, 255, 0.75)',
 		fontSize: '0.85em',
 	},
-	height: 40,
+	height: 'auto',
 	gutter: {
 		horizontal: 0,
 		vertical: 5,
@@ -48,6 +48,13 @@ theme.arrow = {
 	background: 'none',
 	fill: 'white',
 	height: 120,
+};
+
+// toolbar action
+theme.toolbarAction = {
+	background: 'none',
+	fill: 'white',
+	height: 60,
 };
 
 

@@ -90,6 +90,7 @@ class Gallery extends Component {
 					onClickNext={this.gotoNext}
 					onClickPrev={this.gotoPrevious}
 					onClickThumbnail={this.gotoImage}
+					onRotateLeft={() => console.log('rotateLeft')}
 					onClose={this.closeLightbox}
 					preventScroll={this.props.preventScroll}
 					showThumbnails={this.props.showThumbnails}
@@ -97,6 +98,9 @@ class Gallery extends Component {
 					spinnerColor={this.props.spinnerColor}
 					spinnerSize={this.props.spinnerSize}
 					theme={this.props.theme}
+					rotatable
+					zoomable
+					onSave={(currentImageIndex, params) => console.log('currentImageIndex, currentImageSrc, params : ', currentImageIndex, this.props.images[currentImageIndex].src, params)}
 				/>
 			</div>
 		);
