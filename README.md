@@ -44,7 +44,7 @@ export default class Sample extends React.Component {
 
 ## Demo & Examples
 
-Live demo: [jossmac.github.io/react-images](http://jossmac.github.io/react-images/)
+Live demo: [react-images-extended.surge.sh](https://react-images-extended.surge.sh)
 
 To build the examples locally, run:
 
