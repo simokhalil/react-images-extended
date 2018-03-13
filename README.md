@@ -1,4 +1,4 @@
-# React Images
+# React Images Extended
 
 A simple, responsive lightbox React JS component for displaying an array of images with zooming and rotating capabilities.
 This is a fork of [jossmac/react-images](https://github.com/jossmac/react-images)
