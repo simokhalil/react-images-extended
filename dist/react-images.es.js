@@ -694,7 +694,7 @@ var Footer = function (_React$Component) {
 						'figcaption',
 						{ className: css$1(classes.footerCaption) },
 						caption
-					) : React.createElement('span', null),
+					) : React.createElement('span', { className: css$1(classes.footerCaption) }),
 					React.createElement(
 						'ul',
 						{ className: css$1(classes.actions) },
