@@ -3,10 +3,10 @@
 [![react-images on npm](https://img.shields.io/npm/dm/react-images.svg)](https://www.npmjs.com/package/react-images)
 [![Join the chat at https://gitter.im/react-images/Lobby](https://badges.gitter.im/react-images/Lobby.svg)](https://gitter.im/react-images/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-A simple, responsive lightbox component for displaying an array of images.
+A simple, responsive lightbox component for displaying an array of images with zooming and rotating capabilities.
 
 ### Why this fork ?
-I needed something like react-images but with extended features like zooming and rotating, with the ability to save selelcted zoom level (scaling) and zooming via API, and re-apply them on get
+I needed something like react-images but with extended features like zooming and rotating, with the ability to save selelcted zoom level (scaling) and rotation via API, and re-apply them initially on get.
 
 
 ### Quick start
@@ -36,7 +36,7 @@ export default class Sample extends React.Component {
         onClose={this.closeLightbox}
         rotatable={true}
         zoomable={true}
-        onSave={(currentImageIndex, zoom, rotation) => console.log('zoom, rotation, currentImageIndex, currentImageSrc : ', zoom, rotation, currentImageIndex, this.props.images[currentImageIndex].src)}
+        onSave={(currentImageIndex, params) => console.log('currentImageIndex, currentImageSrc, params : ', currentImageIndex, this.props.images[currentImageIndex].src, params)}
       />
     );
   }

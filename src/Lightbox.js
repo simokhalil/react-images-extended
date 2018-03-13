@@ -205,8 +205,6 @@ class Lightbox extends Component {
 	}
 
 	handleZoom (targetX, targetY, direct, scale) {
-		console.log('handleZoom : ', targetX, targetY, direct, scale);
-
 		let imgCenterXY = this.getImageCenterXY();
 		let diffX = targetX - imgCenterXY.x;
 		let diffY = targetY - imgCenterXY.y;
@@ -268,7 +266,6 @@ class Lightbox extends Component {
 		};
 
 		img.onload = () => {
-			console.log('image loaded');
 			let imgWidth = img.width;
 			let imgHeight = img.height;
 
@@ -413,7 +410,6 @@ class Lightbox extends Component {
 		);
 	}
 	renderImages () {
-		console.log('this.state : ', this.state);
 		const {
 			currentImage,
 			images,

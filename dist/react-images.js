@@ -578,15 +578,12 @@ var Footer = function (_React$Component) {
 
 	function Footer(props) {
 		classCallCheck(this, Footer);
-
-		console.log('props : ', props);
 		return possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
 	}
 
 	createClass(Footer, [{
 		key: 'handleAction',
 		value: function handleAction(type) {
-			console.log('handleAction : ', type);
 			this.props.onAction(type);
 		}
 	}, {
@@ -819,6 +816,7 @@ var defaultStyles$5 = {
 		position: 'relative',
 		top: 0,
 		verticalAlign: 'bottom',
+		zIndex: 1,
 
 		// increase hit area
 		height: 40,
@@ -1449,8 +1447,6 @@ var Lightbox = function (_Component) {
 	}, {
 		key: 'handleZoom',
 		value: function handleZoom(targetX, targetY, direct, scale) {
-			console.log('handleZoom : ', targetX, targetY, direct, scale);
-
 			var imgCenterXY = this.getImageCenterXY();
 			var diffX = targetX - imgCenterXY.x;
 			var diffY = targetY - imgCenterXY.y;
@@ -1522,7 +1518,6 @@ var Lightbox = function (_Component) {
 			};
 
 			img.onload = function () {
-				console.log('image loaded');
 				var imgWidth = img.width;
 				var imgHeight = img.height;
 
@@ -1697,7 +1692,6 @@ var Lightbox = function (_Component) {
 		value: function renderImages() {
 			var _this3 = this;
 
-			console.log('this.state : ', this.state);
 			var _props3 = this.props,
 			    currentImage = _props3.currentImage,
 			    images = _props3.images,

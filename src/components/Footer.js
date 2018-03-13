@@ -9,12 +9,10 @@ import deepMerge from '../utils/deepMerge';
 class Footer extends React.Component {
 
 	constructor (props) {
-		console.log('props : ', props);
 		super(props);
 	}
 
 	handleAction (type) {
-		console.log('handleAction : ', type);
 		this.props.onAction(type);
 	};
 
