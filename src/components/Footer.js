@@ -106,7 +106,7 @@ class Footer extends React.Component {
 						<figcaption className={css(classes.footerCaption)}>
 							{caption}
 						</figcaption>
-					) : <span />}
+					) : <span className={css(classes.footerCaption)} />}
 
 					<ul className={css(classes.actions)}>
 						{featureNodeArr}

@@ -90,7 +90,6 @@ class Gallery extends Component {
 					onClickNext={this.gotoNext}
 					onClickPrev={this.gotoPrevious}
 					onClickThumbnail={this.gotoImage}
-					onRotateLeft={() => console.log('rotateLeft')}
 					onClose={this.closeLightbox}
 					preventScroll={this.props.preventScroll}
 					showThumbnails={this.props.showThumbnails}
