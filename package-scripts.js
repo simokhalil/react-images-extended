@@ -23,7 +23,7 @@ module.exports = {
 			default: series(
 				rimraf('examples/dist'),
 				'webpack --progress -p',
-				'git subtree push --prefix examples/dist origin gh-pages'
+				'surge --domain https://react-images-extended.surge.sh'
 			),
 		},
 	},
