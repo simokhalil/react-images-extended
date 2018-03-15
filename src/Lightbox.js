@@ -87,6 +87,12 @@ class Lightbox extends Component {
 
 		console.log('nextProps : ', nextProps);
 
+		console.log('nextProps.images[nextProps.currentImage].initialRotation', nextProps.images[nextProps.currentImage].initialRotation);
+
+		this.setState({
+			rotate: nextProps.images[nextProps.currentImage].initialRotation,
+		});
+
 		// preload images
 		if (nextProps.preloadNextImage) {
 			const currentIndex = this.props.currentImage;
@@ -432,7 +438,7 @@ class Lightbox extends Component {
 		let imgStyle = {
 			width: `${this.state.width}px`,
 			height: 'auto',
-			transform: `rotate(${images[currentImage].initialRotation || this.state.rotate}deg) scaleX(${this.state.scaleX}) scaleY(${this.state.scaleY})`,
+			transform: `rotate(${this.state.rotate}deg) scaleX(${this.state.scaleX}) scaleY(${this.state.scaleY})`,
 		};
 
 		return (
