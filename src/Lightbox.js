@@ -41,7 +41,7 @@ class Lightbox extends Component {
 			top: 15,
 			width: 0,
 			height: 0,
-			rotate: 0,
+			rotate: this.props.initialRotation,
 			imageWidth: 0,
 			imageHeight: 0,
 			scaleX: 1,
@@ -72,6 +72,7 @@ class Lightbox extends Component {
 		};
 	}
 	componentDidMount () {
+		console.log('componentDidMount');
 		if (this.props.isOpen) {
 			if (this.props.enableKeyboardInput) {
 				window.addEventListener('keydown', this.handleKeyboardInput);
@@ -83,6 +84,8 @@ class Lightbox extends Component {
 	}
 	componentWillReceiveProps (nextProps) {
 		if (!canUseDom) return;
+
+		console.log('nextProps : ', nextProps);
 
 		// preload images
 		if (nextProps.preloadNextImage) {
@@ -420,6 +423,8 @@ class Lightbox extends Component {
 
 		if (!images || !images.length) return null;
 
+		console.log('images : ', images);
+
 		const image = images[currentImage];
 		const sourceSet = normalizeSourceSet(image);
 		const sizes = sourceSet ? '100vw' : null;
@@ -427,7 +432,7 @@ class Lightbox extends Component {
 		let imgStyle = {
 			width: `${this.state.width}px`,
 			height: 'auto',
-			transform: `rotate(${this.state.rotate}deg) scaleX(${this.state.scaleX}) scaleY(${this.state.scaleY})`,
+			transform: `rotate(${images[currentImage].initialRotation || this.state.rotate}deg) scaleX(${this.state.scaleX}) scaleY(${this.state.scaleY})`,
 		};
 
 		return (
