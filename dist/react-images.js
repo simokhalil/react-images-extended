@@ -1277,7 +1277,7 @@ var Lightbox = function (_Component) {
 			top: 15,
 			width: 0,
 			height: 0,
-			rotate: 0,
+			rotate: _this.props.initialRotation,
 			imageWidth: 0,
 			imageHeight: 0,
 			scaleX: 1,
@@ -1304,6 +1304,7 @@ var Lightbox = function (_Component) {
 	}, {
 		key: 'componentDidMount',
 		value: function componentDidMount() {
+			console.log('componentDidMount');
 			if (this.props.isOpen) {
 				if (this.props.enableKeyboardInput) {
 					window.addEventListener('keydown', this.handleKeyboardInput);
@@ -1317,6 +1318,8 @@ var Lightbox = function (_Component) {
 		key: 'componentWillReceiveProps',
 		value: function componentWillReceiveProps(nextProps) {
 			if (!canUseDom) return;
+
+			console.log('nextProps : ', nextProps);
 
 			// preload images
 			if (nextProps.preloadNextImage) {
@@ -1701,6 +1704,8 @@ var Lightbox = function (_Component) {
 
 			if (!images || !images.length) return null;
 
+			console.log('images : ', images);
+
 			var image = images[currentImage];
 			var sourceSet = normalizeSourceSet(image);
 			var sizes = sourceSet ? '100vw' : null;
@@ -1708,7 +1713,7 @@ var Lightbox = function (_Component) {
 			var imgStyle = {
 				width: this.state.width + 'px',
 				height: 'auto',
-				transform: 'rotate(' + this.state.rotate + 'deg) scaleX(' + this.state.scaleX + ') scaleY(' + this.state.scaleY + ')'
+				transform: 'rotate(' + (images[currentImage].initialRotation || this.state.rotate) + 'deg) scaleX(' + this.state.scaleX + ') scaleY(' + this.state.scaleY + ')'
 			};
 
 			return React__default.createElement(
