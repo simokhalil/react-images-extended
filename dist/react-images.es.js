@@ -1319,6 +1319,12 @@ var Lightbox = function (_Component) {
 
 			console.log('nextProps : ', nextProps);
 
+			console.log('nextProps.images[nextProps.currentImage].initialRotation', nextProps.images[nextProps.currentImage].initialRotation);
+
+			this.setState({
+				rotate: nextProps.images[nextProps.currentImage].initialRotation
+			});
+
 			// preload images
 			if (nextProps.preloadNextImage) {
 				var currentIndex = this.props.currentImage;
@@ -1711,7 +1717,7 @@ var Lightbox = function (_Component) {
 			var imgStyle = {
 				width: this.state.width + 'px',
 				height: 'auto',
-				transform: 'rotate(' + (images[currentImage].initialRotation || this.state.rotate) + 'deg) scaleX(' + this.state.scaleX + ') scaleY(' + this.state.scaleY + ')'
+				transform: 'rotate(' + this.state.rotate + 'deg) scaleX(' + this.state.scaleX + ') scaleY(' + this.state.scaleY + ')'
 			};
 
 			return React.createElement(
