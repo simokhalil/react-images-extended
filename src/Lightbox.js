@@ -41,7 +41,7 @@ class Lightbox extends Component {
 			top: 15,
 			width: 0,
 			height: 0,
-			rotate: this.props.initialRotation,
+			rotate: 0,
 			imageWidth: 0,
 			imageHeight: 0,
 			scaleX: 1,
@@ -72,7 +72,6 @@ class Lightbox extends Component {
 		};
 	}
 	componentDidMount () {
-		console.log('componentDidMount');
 		if (this.props.isOpen) {
 			if (this.props.enableKeyboardInput) {
 				window.addEventListener('keydown', this.handleKeyboardInput);
@@ -85,35 +84,8 @@ class Lightbox extends Component {
 	componentWillReceiveProps (nextProps) {
 		if (!canUseDom) return;
 
-		console.log('nextProps : ', nextProps);
-
-		console.log('nextProps.images[nextProps.currentImage].initialRotation', nextProps.images[nextProps.currentImage].initialRotation);
-
-		this.setState({
-			rotate: nextProps.images[nextProps.currentImage].initialRotation,
-		});
-
-		// preload images
-		if (nextProps.preloadNextImage) {
-			const currentIndex = this.props.currentImage;
-			const nextIndex = nextProps.currentImage + 1;
-			const prevIndex = nextProps.currentImage - 1;
-			let preloadIndex;
-
-			if (currentIndex && nextProps.currentImage > currentIndex) {
-				preloadIndex = nextIndex;
-			} else if (currentIndex && nextProps.currentImage < currentIndex) {
-				preloadIndex = prevIndex;
-			}
-
-			// if we know the user's direction just get one image
-			// otherwise, to be safe, we need to grab one in each direction
-			if (preloadIndex) {
-				this.preloadImage(preloadIndex);
-			} else {
-				this.preloadImage(prevIndex);
-				this.preloadImage(nextIndex);
-			}
+		if (this.props.isOpen && nextProps.isOpen) {
+			this.preloadImage(this.props.currentImage);
 		}
 
 		// preload current image
@@ -428,8 +400,6 @@ class Lightbox extends Component {
 		const { imageLoaded } = this.state;
 
 		if (!images || !images.length) return null;
-
-		console.log('images : ', images);
 
 		const image = images[currentImage];
 		const sourceSet = normalizeSourceSet(image);
