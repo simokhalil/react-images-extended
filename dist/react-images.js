@@ -1277,7 +1277,7 @@ var Lightbox = function (_Component) {
 			top: 15,
 			width: 0,
 			height: 0,
-			rotate: _this.props.initialRotation,
+			rotate: 0,
 			imageWidth: 0,
 			imageHeight: 0,
 			scaleX: 1,
@@ -1304,7 +1304,6 @@ var Lightbox = function (_Component) {
 	}, {
 		key: 'componentDidMount',
 		value: function componentDidMount() {
-			console.log('componentDidMount');
 			if (this.props.isOpen) {
 				if (this.props.enableKeyboardInput) {
 					window.addEventListener('keydown', this.handleKeyboardInput);
@@ -1319,35 +1318,8 @@ var Lightbox = function (_Component) {
 		value: function componentWillReceiveProps(nextProps) {
 			if (!canUseDom) return;
 
-			console.log('nextProps : ', nextProps);
-
-			console.log('nextProps.images[nextProps.currentImage].initialRotation', nextProps.images[nextProps.currentImage].initialRotation);
-
-			this.setState({
-				rotate: nextProps.images[nextProps.currentImage].initialRotation
-			});
-
-			// preload images
-			if (nextProps.preloadNextImage) {
-				var currentIndex = this.props.currentImage;
-				var nextIndex = nextProps.currentImage + 1;
-				var prevIndex = nextProps.currentImage - 1;
-				var preloadIndex = void 0;
-
-				if (currentIndex && nextProps.currentImage > currentIndex) {
-					preloadIndex = nextIndex;
-				} else if (currentIndex && nextProps.currentImage < currentIndex) {
-					preloadIndex = prevIndex;
-				}
-
-				// if we know the user's direction just get one image
-				// otherwise, to be safe, we need to grab one in each direction
-				if (preloadIndex) {
-					this.preloadImage(preloadIndex);
-				} else {
-					this.preloadImage(prevIndex);
-					this.preloadImage(nextIndex);
-				}
+			if (this.props.isOpen && nextProps.isOpen) {
+				this.preloadImage(this.props.currentImage);
 			}
 
 			// preload current image
@@ -1709,8 +1681,6 @@ var Lightbox = function (_Component) {
 
 
 			if (!images || !images.length) return null;
-
-			console.log('images : ', images);
 
 			var image = images[currentImage];
 			var sourceSet = normalizeSourceSet(image);
